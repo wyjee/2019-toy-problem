@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /* Implement the function asyncMap:
  *
@@ -38,6 +38,19 @@
  *
  */
 
+var asyncMap = function(tasks, callback) {
+  var count = 0;
+  var result = [];
 
-var asyncMap = function(tasks, callback){
+  return tasks.forEach(function(task, index) {
+    task(function(arg) {
+      result[index] = arg;
+      count++;
+      if (count === tasks.length) {
+        callback(result);
+      }
+    });
+  });
 };
+
+//Promise.all() 방법
