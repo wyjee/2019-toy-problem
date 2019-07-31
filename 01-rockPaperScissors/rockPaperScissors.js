@@ -58,5 +58,3 @@ var rockPaperScissors = function () {
   }
 };
 
-  //매개변수가 없는 경우   3판 new Array(3)
-  //let rock=3; let scissor=3; let paper=3
