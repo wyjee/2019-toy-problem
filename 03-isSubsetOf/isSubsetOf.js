@@ -35,7 +35,7 @@ Array.prototype.isSubsetOf = function(array){
       inputArrayToObj[arrayTocheck[i]]++;
     }
   }
-
+//Array 에 있는 값이 인풋어레이에 모두 있으면 true
   if(Object.values(inputArrayToObj).indexOf(0)>-1) return false;
   return true;
 
