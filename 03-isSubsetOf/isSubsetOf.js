@@ -23,5 +23,26 @@
 */
 
 Array.prototype.isSubsetOf = function(array){
-  // Your code here
+  // 인풋 어레이를 리듀스해서 객체의 키로 저장, 값은 0
+  // Array 를 리듀스 돌려 있으면 밸류값을 하나씩 올리고
+  // 밸류값들 중 0이 있으면 false
+  let arrayTocheck = this;
+  
+  let inputArrayToObj = array.reduce(function(acc, curr){
+    acc[curr]=0;
+    return acc;
+  },{});
+
+  for(let i=0; i<arrayTocheck.length; i++) {
+    if(inputArrayToObj[arrayTocheck[i]]!==undefined) {
+      inputArrayToObj[arrayTocheck[i]]++;
+    }
+  }
+  console.log('inputArrayToObj',Object.values(inputArrayToObj))
+  // console.log('arrayTocheck',arrayTocheck)
+  
+  if(Object.values(inputArrayToObj).indexOf(0)>-1) return false;
+  return true;
+
+
 };
