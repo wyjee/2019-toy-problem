@@ -29,13 +29,11 @@ Array.prototype.isSubsetOf = function(array){
     acc[curr]=0;
     return acc;
   },{});
-
   for(let i=0; i<array.length; i++) {
     if(thisArrayToObj[array[i]]!==undefined) {
       thisArrayToObj[array[i]]++;
     }
   }
-//Array 에 있는 값이 인풋어레이에 모두 있으면 true
   if(Object.values(thisArrayToObj).indexOf(0)>-1) return false;
   return true;
 
