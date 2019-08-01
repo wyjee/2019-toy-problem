@@ -38,8 +38,6 @@ Array.prototype.isSubsetOf = function(array){
       inputArrayToObj[arrayTocheck[i]]++;
     }
   }
-  console.log('inputArrayToObj',Object.values(inputArrayToObj))
-  // console.log('arrayTocheck',arrayTocheck)
   
   if(Object.values(inputArrayToObj).indexOf(0)>-1) return false;
   return true;
