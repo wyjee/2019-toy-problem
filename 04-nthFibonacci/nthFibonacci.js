@@ -19,35 +19,31 @@
  * etc...
  *
  */
-
+let count = 0;
 var nthFibonacci = function (n) {
   // TODO: implement me!
   let cache = {
     0 : 0,
     1 : 1
   };
-  for(let i=2; i<=n; i++) {
-    cache[i] = cache[i-1] + cache[i-2];
+  if([...arguments].length) {
+    for(let i=2; i<=n; i++) {
+      cache[i] = cache[i-1] + cache[i-2];
+    }
+    return cache[n];
   }
-  return cache[n];
-  // let count = 0;
-  // let cache = {};
-  // if([...arguments].length) {
-  // }
-  // if(cache[n]) {
-  //   return cache[n];
-  // }
-  // else {
-  //   if(n === 0) {
-  //     return 0;
-  //     count++;
-  //   }
-  //   if(n === 1) {
-  //     return 1;
-  //     count++;
-  //   }
-  //   return nthFibonacci(count-1)+nthFibonacci(count-2);
-  // }
+  else {
+    if(cache[count]) {
+      count++;
+      return cache[count];
+    }
+    for(let i=2; i<=count; i++) {
+      cache[i] = cache[i-1] + cache[i-2];
+    }
+    return cache[n];
+  }
+  
+
 };
 
 
