@@ -34,4 +34,21 @@
 
 var bubbleSort = function(array) {
   // Your code here.
+  // 0번째부터 length끝까지 현재와 다음을 비교하고,
+  // 한 번 회전할 때마다 length--;
+  // 정렬된 array 리턴
+  let variableVal;
+  let copyParam = array.slice();
+  let lengthToCheck = array.length;
+  while (lengthToCheck) {
+    for(let i=0; i<lengthToCheck; i++) {
+      if(copyParam[i]>copyParam[i+1]) {
+        variableVal = copyParam[i];
+        copyParam[i] = copyParam[i+1];
+        copyParam[i+1] = variableVal;
+      }
+    }
+    lengthToCheck--;
+  }
+  return copyParam;
 };
