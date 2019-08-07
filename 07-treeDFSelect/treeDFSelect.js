@@ -35,7 +35,23 @@ var Tree = function(value){
   this.children = [];
 };
 
+
 Tree.prototype.DFSelect = function(filter) {
+  //value 가 있으면 걔를 픽
+  //value 가 없으면 children 에서 리커전
+  let result = [];
+  if(this.value) {
+    if(filter(this.value)) {
+      result.push(this.value);
+    }
+  }
+  if(this.children.length > 0) {
+    for(let i=0; i<this.children.length; i++) {
+      result = Tree.DFSelect(this.children[i], result);
+    }
+  }
+  console.log('result', result, 'this', this)
+  return result;
 };
 
 
