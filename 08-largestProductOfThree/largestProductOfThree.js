@@ -17,20 +17,3 @@ var largestProductOfThree = function(array) {
   }
   return result;
 };
-
-
-// var largestProductOfThree = function(array) {
-//   let result = 1;
-//   let copy = array.slice()
-//   let i= 3
-//   let largestNumberI;
-//   while (i>0) {
-//     largestNumberI = copy.indexOf(Math.max(...copy));
-//     result*=copy[largestNumberI];
-//     copy.splice(largestNumberI,1)
-//     console.log('array',array,'copy',copy,'result',result)
-//     i--;
-//   }
-//   return result;
-// };
-
