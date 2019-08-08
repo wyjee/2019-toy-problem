@@ -9,5 +9,24 @@
 
 
 var largestProductOfThree = function(array) {
-  // TODO: everything
+  let arraySorted = array.sort((a,b)=>b-a);
+  // console.log(arraySorted)
+  return arraySorted[0]*arraySorted[1]*arraySorted[2];
 };
+
+
+// var largestProductOfThree = function(array) {
+//   let result = 1;
+//   let copy = array.slice()
+//   let i= 3
+//   let largestNumberI;
+//   while (i>0) {
+//     largestNumberI = copy.indexOf(Math.max(...copy));
+//     result*=copy[largestNumberI];
+//     copy.splice(largestNumberI,1)
+//     console.log('array',array,'copy',copy,'result',result)
+//     i--;
+//   }
+//   return result;
+// };
+
