@@ -12,6 +12,7 @@
   *
   */
   var deepEquals = function (apple, orange) {
+    
   if (Object.keys(apple).length !== Object.keys(orange).length) return false;
     for (let key in apple) {
       if (!orange.hasOwnProperty(key)) return false;
