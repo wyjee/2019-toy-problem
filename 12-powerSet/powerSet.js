@@ -17,5 +17,23 @@
  * -> ["", "j", "ju", "jm", "jp", "jmu", "jmp", "jpu", "jmpu", "u", "m", "p", "mu", "mp", "pu", "mpu"]
  */
 
-var powerSet = function(str){
+// 결과글자의길이가 인풋 값의 길이일 때까지 루프를 돈다
+// 처음엔 하나씩 둘씩일 때는 더해서 푸시
+
+var powerSet = function (str) {
+    //{}
+    //str[i] : [str[i], str[i+1] ~ str[str.length-1]]
+    //str[i+1] : [str[i+1], str[]]
+    let resultObj = {};
+    let result = [''];
+    for(let i=0; i<str.length; i++) {
+        let array = [];
+        resultObj[str[i]] = [''];
+        for(let j=i; j<str.length; j++) {
+            // array.push(resultObj[str[i][j]]+=str[j])
+        }
+        array.concat(resultObj[str[i]]);
+    }
+    console.log(resultObj);
+    // return Object.values(resultObj).sort();
 }
