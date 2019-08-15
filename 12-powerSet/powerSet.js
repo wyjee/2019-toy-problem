@@ -30,6 +30,5 @@ var powerSet = function (str) {
             }
         }
     }
-    console.log(array)
     return array;
 }
