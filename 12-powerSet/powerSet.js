@@ -25,9 +25,7 @@ var powerSet = function (str) {
     for(let j=0; j<filteredStr.length; j++) {
         varLength = array.length;
         for(let i=0; i<varLength; i++) {
-            if(!array.includes(filteredStr[j]+array[i])) {
-                array.push(filteredStr[j]+array[i])
-            }
+            array.push(filteredStr[j]+array[i])
         }
     }
     return array;
