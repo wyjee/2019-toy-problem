@@ -95,8 +95,34 @@
  *
  */
 
-
-
 var mergeSort = function(array) {
   // Your code here.
+  let slicedArray = array.map(el => [el]);
+  let result = [];
+  innerSort(slicedArray);
+  function innerSort(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      let pair = [];
+      if (arr[i] > arr[i + 1]) {
+        pair.push(arr[i + 1][0], arr[i][0]);
+      } else if (arr[i + 1] === undefined) {
+        pair.push(arr[i]);
+      } else {
+        pair.push(arr[i], arr[i + 1]);
+      }
+      result.push(pair);
+    }
+  }
+  if (result.length !== 1) {
+    innerSort(result);
+  } else {
+    return result;
+  }
+  // console.log(result);
 };
+
+// mergeSort([4,7,4,3,9,1,2])
+//일단 엘리먼트 하나씩 나눠놓고
+//앞에서 쌍으로 각 크기를 비교하면서
+//콘캣 (하나의 어레이가 아니라면 리커전)
+//하
