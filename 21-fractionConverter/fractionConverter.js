@@ -14,9 +14,10 @@
 
 var toFraction = function(number) {
   // Your code here
-  let dotIndex = number.toString().indexOf(".");
+  let dotIndex =
+    number.toString().indexOf(".") === -1 ? -1 : number.toString().indexOf(".");
+  if (dotIndex === -1) return number + "/" + 1;
   let exponent = number.toString().length - dotIndex - 1;
-  console.log(exponent);
   let molecule = number.toString().slice(dotIndex + 1);
   let denominator = Math.pow(10, exponent);
   function findGCD(a, b) {
@@ -27,5 +28,3 @@ var toFraction = function(number) {
   let GCD = findGCD(molecule, denominator);
   return molecule / GCD + "/" + denominator / GCD;
 };
-
-// toFraction(0.88)
