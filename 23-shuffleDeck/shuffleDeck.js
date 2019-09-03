@@ -33,16 +33,16 @@
 
 var shuffleDeck = function(deck) {
   // Your code here
-  let result = deck.slice();
-  let currLength = result.length;
-  while (0 < currLength) {
-    let randomIndex = Math.random() * currLength;
-    let val = result[randomIndex];
-    currLength--;
-    result[randomIndex] = result[currLength];
-    result[currLength] = val;
+  let copy = deck.slice();
+  let currentIndex = copy.length;
+  while (currentIndex !== 0) {
+    let shuffleIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+    let temporaryValue = copy[currentIndex];
+    copy[currentIndex] = copy[shuffleIndex];
+    copy[shuffleIndex] = temporaryValue;
   }
-  return result;
+  return copy;
 };
 
 // Ordered deck generator provided for your testing convenience
