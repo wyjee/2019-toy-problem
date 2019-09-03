@@ -33,13 +33,23 @@
 
 var shuffleDeck = function(deck) {
   // Your code here
+  let result = deck.slice();
+  let currLength = result.length;
+  while (0 < currLength) {
+    let randomIndex = Math.random() * currLength;
+    let val = result[randomIndex];
+    currLength--;
+    result[randomIndex] = result[currLength];
+    result[currLength] = val;
+  }
+  return result;
 };
 
 // Ordered deck generator provided for your testing convenience
 // (You may alter this function, but an unaltered copy will be used for tests.)
 var orderedDeck = function() {
-  var suits = [ '♥', '♣', '♠', '♦' ];
-  var values = [ 'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K' ];
+  var suits = ["♥", "♣", "♠", "♦"];
+  var values = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
   var deck = [];
 
   suits.forEach(function(suit) {
