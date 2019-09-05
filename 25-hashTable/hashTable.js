@@ -9,22 +9,19 @@ var makeHashTable = function() {
   var result = {};
   var storage = [];
   var storageLimit = 1000;
-  result.insert = function(k, valueToHash /*...*/) {
+  result.insert = function(k, v /*...*/) {
     // TODO: implement `insert()`
-    let index = getIndexBelowMaxForKey(k, storageLimit);
-    storage.set(index, valueToHash);
+    storage[k] = v;
   };
 
   result.retrieve = function(k /*...*/) {
     // TODO: implement `retrieve()`
-    let index = getIndexBelowMaxForKey(k, storageLimit);
-    return get(index);
+    return storage[k];
   };
 
   result.remove = function(k /*...*/) {
     // TODO: implement `remove()`
-    let index = getIndexBelowMaxForKey(k, storageLimit);
-    delete storage.set(index);
+    delete storage[k];
   };
 
   return result;
