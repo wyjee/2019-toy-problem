@@ -22,5 +22,8 @@
 
 var mixEvents = function(obj) {
   // TODO: Your code here
+  console.log("arguments", ...arguments);
+  var events = {};
+
   return obj;
 };
