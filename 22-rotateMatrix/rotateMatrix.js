@@ -43,6 +43,12 @@
  *  - Make your function accept a parameter for the direction of rotation (1 = clockwise, -1 = counterclockwise)
  */
 
-var rotateMatrix = function (matrix) {
+var rotateMatrix = function(matrix) {
   // Your code here.
+  var result = [];
+
+  for (var i = 0; i < grid.length; i++) {}
+
+  for (var i = 0; i < newGrid.length; i++) {}
+  return result;
 };
