@@ -20,11 +20,11 @@ var toFraction = function(number) {
   let exponent = number.toString().length - dotIndex - 1;
   let molecule = number.toString().slice(dotIndex + 1);
   let denominator = Math.pow(10, exponent);
-  function findGCD(a, b) {
+  function find(a, b) {
     for (let i = a < b ? a : b; i > 0; i--) {
       if (a % i === 0 && b % i === 0) return i;
     }
   }
-  let GCD = findGCD(molecule, denominator);
+  let GCD = find(molecule, denominator);
   return molecule / GCD + "/" + denominator / GCD;
 };
