@@ -12,4 +12,13 @@
 
 var commonCharacters = function(string1, string2) {
   // TODO: Your code here!
+  let result = "";
+  arr1 = string1.split("");
+  arr2 = string2.split("");
+  arr2.forEach(letter => {
+    if (string1.includes(letter) && !result.includes(letter)) {
+      result += letter;
+    }
+  });
+  return result;
 };
