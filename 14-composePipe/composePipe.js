@@ -34,7 +34,31 @@
 'use strict';
 
 var compose = function(){
-};
+                          //return a function to call the first value in
+                          //store the arguments to use in the inner function
+                          var args = [].slice.call(arguments);
+
+                          return function(value) {
+                            //iterate through each argument to pass the value to
+                            for (var i = args.length - 1; i >= 0; i--) {
+                              // console.log(args[i])
+                              value = args[i](value);
+                            }
+
+                            return value;
+                          };
+                        };
 
 var pipe = function(){
-};
+  var args = [].slice.call(arguments);
+
+  return function(value) {
+    //iterate through each argument to pass the value to
+    for (var i = 0; i < args.length; i++) {
+      // console.log(args[i])
+      value = args[i](value);
+    }
+
+    return value;
+  };
+                     };
