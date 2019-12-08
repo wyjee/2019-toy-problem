@@ -10,4 +10,22 @@
  */
 
 // Solved in O(n) time with O(1) memory
-var sumArray = function(array) {};
+var sumArray = function(array) {
+    let max = 0;
+    let current = 0;
+    for(let i=0; i<array.length; i++) {
+        if(current+array[i]<array[i]){
+            current = array[i]
+        }
+        else {
+            current+=array[i]
+        }
+        if(max<current){
+            max=current
+        }
+    }
+    if(max ===0){
+        max=Math.max(...array)
+    }
+    return max
+};
