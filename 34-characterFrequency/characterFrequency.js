@@ -37,5 +37,71 @@
 
 
 var characterFrequency = function(string) {
-  return result;
-};
+  let items = {}; // [{character: '', number:''},{character: '', number:''}]
+  for (
+    let i = 0;
+    i < string.length;
+    i++
+  ) {
+    if (
+      items.hasOwnProperty(string[i])
+    )
+      items[string[i]]++;
+    else {
+      items[string[i]] = 1;
+    }
+  }
+
+  let order = Object.keys(items)
+  for(let j=0;j<order.length; j++){
+    order[j] = items[order[j]] + order[j];
+  }
+  order.sort();
+
+let result =[]
+let innerOrder=[]
+let n=order.length
+for(let k = order.length-1; k>-1; k--){
+  
+  if(n!==order[k][0]){
+    if(innerOrder.length>0) {
+      let Inner = innerOrder.reverse();
+      result.push(Inner)
+      innerOrder=[]
+    }
+
+  }
+     innerOrder.push(order[k]);
+      n = order[k][0]; 
+      if(k===0){
+        let Inner = innerOrder.reverse();
+        result.push(Inner);
+      }
+}
+
+result=result.reduce((acc, val) => acc.concat(val), []);
+
+for (let l=0; l<result.length; l++){
+  console.log('index',l,result[l] , [result[l][1], result[l][0]]);
+  result[l]=[result[l][1],Number(result[l][0])]
+}
+console.log('Result~!',result)
+return result
+  // -------------sort by object values --------------
+  // let order = Object.keys(items)
+  // for(let j=0;j<order.length; j++){
+  //   order[j]={character: order[j], number: items[order[j]]}
+  // }
+
+  // order.sort(function(a, b) {
+  //   if (a.number < b.number) {
+  //     return 1;
+  //   }
+  //   if (a.number > b.number) {
+  //     return -1;
+  //   }
+  //   return 0;
+  // });
+  // console.log(order)
+  // ---------------------------------
+  };
