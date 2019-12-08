@@ -47,21 +47,4 @@ var testingTransform = function(array) {
 };
 
 var insertionSort = function(array) {
-  array.sort(function(current, next) {
-    return current.value - next.value;
-  });
-
-  return array;
-  // // Your code goes here. Feel free to add helper functions if needed.
-  // for (let i = 0; i < array.length; i++) {
-  //   // 인덱스 값을 하나씩 순회
-  //   if (array[i + 1].value < array[i].value) {
-  //     // 다음 인덱스 값의 value 가 현재 인덱스 값의 value 보다 작으면 현재 인덱스 값의 value를 저장했다가
-  //     let val = array[i];
-  //     for (let j = i; j > 0; j--) {
-  //       // 그 값을 가지고, 현재 인덱스까지 처음부터 다시 순회하면서 제자리 찾기.. !
-  //     }
-  //   }
-  // }
-  // return array;
 };
