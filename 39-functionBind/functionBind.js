@@ -25,6 +25,13 @@
 
 var bind = function() {
   // TODO: Your code here
+  let args = [...arguments]
+  return function(){
+    if(args[1]===null){
+      //args[1] is context if null
+      return args[0](args.slice(2),...arguments)
+    }
+  }
 };
 
 /*
@@ -54,7 +61,9 @@ var bind = function() {
 
 Function.prototype.bind = function() {
   // TODO: Your code here
+  let args = [...arguments]
   return function() {
     // TODO: Your code here, too
+    return bind(this,args[0],args.slice(1))
   };
 };
