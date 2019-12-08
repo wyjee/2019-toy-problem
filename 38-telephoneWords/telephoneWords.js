@@ -42,14 +42,12 @@ var phoneDigitsToLetters = {
 
 var telephoneWords = function(digitString) {
   // TODO: return every combination that can be spelled on a phone with these digits
-  //첫번째의 첫번째 글자부터 두번째의 마지막 글자를 지나 마지막의 마지막 글자까지 순회해 배열에 담기
 
   let digit = digitString.split("");
   let lettersArr = digit.reduce((acc, curr) => {
     acc.push(phoneDigitsToLetters[curr]);
     return acc;
   }, []);
-  console.log("$$", lettersArr);
   let result = [];
   for (let i = 0; i < lettersArr[0].length; i++) {
     for (let j = 0; j < lettersArr[1].length; j++) {
