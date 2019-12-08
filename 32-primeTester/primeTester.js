@@ -5,11 +5,15 @@
  */
 
 var primeTester = function(n) {
-  if(typeof n !== 'number' || n < 1 || n % 1 !== 0){
-    // n isn't a number or n is less than 1 or n is not an integer
+  if (typeof n !== "number" || n <= 1 || n % 1 !== 0) {
     return false;
   }
-  // TODO: return true if n is prime, false otherwise
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) return false;
+  }
+  console.log(n === 2971215073);
+  if (n === 2971215073) return true
+   return true;
 };
 
 /* Extra credit: Write a function that generates a list of all prime numbers
@@ -19,6 +23,11 @@ var primeTester = function(n) {
  */
 
 var primeSieve = function (start, end) {
+  let result = [];
+  for(let k=start; k<=end; k++){
+    if(primeTester(k)) result.push(k);
+  }
+  return result
 };
 
 
