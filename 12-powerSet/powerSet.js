@@ -18,15 +18,17 @@
  */
 
 var powerSet = function (str) {
-    let array = [''];
-    let varLength;
-    let filteredStr = [...new Set(str.split(''))];
+    let result = [""];
+    let strings = [...str]
 
-    for(let j=0; j<filteredStr.length; j++) {
-        varLength = array.length;
-        for(let i=0; i<varLength; i++) {
-            array.push(filteredStr[j]+array[i])
-        }
+    for(let i=0; i<strings.length; i++) {
+        let store = result.reduce((acc,curr)=> {
+            if (!curr.includes(strings[i])) {
+              acc.push(curr + strings[i]);
+            }
+            return acc
+        },[])
+        result.push(...store)
     }
-    return array;
+    return result
 }
