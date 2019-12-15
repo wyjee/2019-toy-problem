@@ -47,4 +47,17 @@ var nthFibonacci = function (n) {
 };
 
 
+// * Linear time and iterative way
+// var nthFibonacci = function(n) {
+//   // TODO: implement me!
+//   let cache = [];
 
+//   for (let i = 0; i <= n; i++) {
+//     if (i === 0 || i === 1) cache[i] = i;
+//     else {
+//       cache[i] = cache[i - 2] + cache[i - 1];
+//     }
+//   }
+
+//   return cache[n];
+// };
