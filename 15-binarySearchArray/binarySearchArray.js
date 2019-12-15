@@ -10,29 +10,19 @@
 
 var binarySearch = function (array, target, index) {
     if(index === undefined) index = 0;
-    let middle = array.length ===1 ? 0 :Math.floor(array.length/2);
+    let middle = array.length ===1 ? 0 : Math.floor(array.length/2);
     let midNum = array[middle];
-// console.log(
-//   "@",
-//   array,
-//   target,
-//   "Index:",
-//   index,
-//   "midNum === target",
-//   midNum,
-//   target,
-//   midNum === target
-// );
+
     if(midNum === target) {
-        console.log(array,target,index + middle);
+        console.log('WHERE ',array, index, middle)
         return index + middle;
     }
-    if (target < midNum) {
+    else if (target < midNum) {
         let lowerSliced = array.slice(0, middle);
-        binarySearch(lowerSliced, target, index);
+        return binarySearch(lowerSliced, target, index);
     } else if (target > midNum) {
         let highSliced = array.slice(middle);
-        binarySearch(highSliced, target, index + middle);
+        return binarySearch(highSliced, target, index + middle);
     }
     else {
         return null;
