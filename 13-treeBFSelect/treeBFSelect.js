@@ -37,8 +37,36 @@ var Tree = function(value){
 
 
 
-Tree.prototype.BFSelect = function(filter) {
+Tree.prototype.BFSelect = function(filter, depth=0) {
   // return an array of values for which the function filter(value, depth) returns true
+  let result = [];
+
+  if(filter(this.value, depth)){
+    result.push(this.value)
+  }
+  // if(this.children){
+  //   this.children.reduce((array, child) => {
+  //     array.concat;
+  //   }, []);
+  // }
+  // else{
+  //   return;
+  // }
+  // let reduced =(this.children.reduce((array, child) => {
+  //     return array.concat(child.BFSelect(filter,depth+1));
+  //   }, []))
+
+
+  let final = [
+    ...result,
+    // ...reduced
+    ...this.children.reduce((array, child) => {
+      return array.concat(child.BFSelect(filter, depth + 1));
+    }, [])
+  ];
+console.log(final)
+  return final
+
 };
 
 /**
