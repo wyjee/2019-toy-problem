@@ -35,27 +35,16 @@ var Tree = function(value){
   this.children = [];
 };
 
-Tree.prototype.DFSelect = function(filter) {
-  //value 가 있으면 걔를 픽
-  //value 가 없으면 children 에서 리커전
+Tree.prototype.DFSelect = function(filter, depth = 0) {
   let result = [];
-
-  let filteringFn = function(node, depth) {
-    if(this.value) {
-      if(filter(this.value)) {
-        result.push(this.value);
-      }
-    }
-    if(this.children.length > 0) {
-      for(let i=0; i<this.children.length; i++) {
-        filteringFn(this.children[i], depth++);
-      }
-    }
-    filteringFn(node,0)
-  }
-
-  console.log('result', result, 'this', this)
-  return result;
+  if(filter(this.value, depth)) {
+    result.push(this.value)}
+  return [
+    ...result,
+    ...(this.children.reduce((array,child)=>{
+      return array.concat(child.DFSelect(filter, depth+1))
+    },[]))
+  ]
 };
 
 
